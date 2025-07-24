@@ -144,15 +144,13 @@ export default function Home() {
   // Update columns based on screen size
   useEffect(() => {
     const updateColumns = () => {
-      if (window.innerWidth < 640) {
-        setColumns(1);
-      } else if (window.innerWidth < 768) {
+      if (window.innerWidth < 768) {
         setColumns(2);
       } else {
         setColumns(4);
       }
     };
-
+  
     updateColumns();
     window.addEventListener('resize', updateColumns);
     return () => window.removeEventListener('resize', updateColumns);
@@ -317,7 +315,7 @@ export default function Home() {
   const playlistText = playlist.map((song) => `${song.title} by ${song.artist}`).join('\n');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-sky-100 to-white flex flex-col items-center justify-center p-4 md:p-8 text-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-sky-300 via-sky-100 to-white flex flex-col items-center justify-center p-4 md:p-8 text-blue-900 overflow-x-hidden">
       <div className="w-full max-w-5xl flex flex-col items-center">
         {playlist.length > 0 ? (
           // Folded layout, centered
@@ -358,7 +356,7 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center h-full">
+          <div className="flex flex-col items-center justify-start pt-4 sm:pt-8 h-full">
             <h1 className="text-6xl font-bold text-blue-900 mb-4">Vibe DJ</h1>
             <p className="text-2xl text-blue-900 max-w-md text-center mb-6">
               Create playlists that match your vibe
@@ -432,9 +430,9 @@ export default function Home() {
         )}
 
         {playlist.length > 0 && (
-          <div className="mt-4 w-full">
+          <div className="mt-4 w-full max-w-full overflow-x-hidden">
             <h2 className="text-2xl font-semibold mb-4 text-center">Your Playlist</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 w-full box-border">
               {playlist.map((song, index) => (
                 <div
                   key={index}
