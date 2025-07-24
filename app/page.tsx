@@ -323,7 +323,7 @@ export default function Home() {
           // Folded layout, centered
           <div className="flex justify-between items-center mb-6 w-full">
             <div className="flex items-center">
-              <h1 className="text-3xl font-bold mr-4">Vibe DJing</h1>
+              <h1 className="text-3xl font-bold mr-4">Vibe DJ</h1>
               <form onSubmit={handleGenerate} className="flex w-full max-w-md">
                 <input
                   type="text"
@@ -359,7 +359,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center h-full">
-            <h1 className="text-6xl font-bold text-blue-900 mb-4">Vibe DJing</h1>
+            <h1 className="text-6xl font-bold text-blue-900 mb-4">Vibe DJ</h1>
             <p className="text-2xl text-blue-900 max-w-md text-center mb-6">
               Create playlists that match your vibe
             </p>
